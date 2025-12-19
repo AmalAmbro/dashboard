@@ -1,0 +1,75 @@
+:root {
+  --link-color: #0D90FF;
+  --text-dark-color: #212327;
+  --text-light-color: #50565E;
+  --text-lighter-color: #808893;
+  --border-color: #F1F1F1;
+  --border-color-2: #bcbcbc;
+  --highlighted-color: #F4F5F6;
+  --background-color: #FFFFFF;
+
+  --dark-mode-highlighted-color: #282B2F;
+  --dark-mode-text-light-color: #DEE0E3;
+  --dark-mode-text-lighter-color: #F9FAFA;
+  --dark-mode-border-color: #212121;
+  --dark-mode-border-color-2: #2c2c2c;
+  --dark-mode-background: #0B0B0B;
+
+  --font-size-title: 14px;
+  --font-size-head: 12px;
+  --font-size-label: 14px;
+  --font-size-caption: 12px;
+  --font-size-body-text: 12px;
+  --font-size-input-info-icon: 10px;
+
+  --sidebar-width: 267px;
+}
+
+html{
+  font-size: var(--font-size-body-text);
+}
+
+.text-title {
+  font-size:var(--font-size-title);
+  font-weight: 700;
+}
+.text-head{
+  font-size:var(--font-size-head);
+  font-weight: 700;
+}
+.text-label{
+  font-size:var(--font-size-label);
+  font-weight: 400;
+}
+.text-caption{
+  font-size:var(--font-size-caption);
+  font-weight: 400;
+}
+
+body {
+  min-height: 100vh;
+  transition:
+    color 0.5s,
+    background-color 0.5s;
+  line-height: 1.6;
+  font-size: var(--font-size-body-text);
+  font-weight: 400;
+  font-family: "SF Pro Text","SF Pro Icons",-apple-system,BlinkMacSystemFont,"Helvetica Neue","Helvetica","Open Sans","Arial",sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+label {
+  color: var(--text-light-color);
+  font-weight: 400;
+}
+
+// dark mode
+.my-app-dark {
+  & {
+    background-color: var(--dark-mode-background);
+  }
+  * {
+    border-color: var(--dark-mode-border-color);
+  }
+}
