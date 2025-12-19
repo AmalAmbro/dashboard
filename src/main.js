@@ -1,3 +1,4 @@
+import './assets/tailwind.css'
 import './assets/main.scss'
 
 import { createApp } from 'vue'
@@ -43,6 +44,7 @@ app.use(PrimeVue, {
 		preset: MyPreset,
 		options: {
             darkModeSelector: '.my-app-dark',
+			
         }
 	},
 });
