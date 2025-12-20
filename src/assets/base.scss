@@ -6,6 +6,7 @@
   --border-color: #F1F1F1;
   --border-color-2: #bcbcbc;
   --highlighted-color: #F4F5F6;
+  --body-background-color: #f1f2f6;
   --background-color: #FFFFFF;
 
   --dark-mode-highlighted-color: #282B2F;
@@ -58,6 +59,7 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--body-background-color);
 }
 label {
   color: var(--text-light-color);
