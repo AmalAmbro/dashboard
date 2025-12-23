@@ -6,28 +6,27 @@
                     <template v-for="(item, index) in navigations" :key="item.to || item.name">
                         <div v-if="item.child" class="flex flex-col">
                             <div 
-                                class="flex items-center gap-3 p-3 rounded-lg cursor-pointer w-full"
-                                :style="activeParent?.name == item.name ? `background-color: var(--body-background)`: ''"
-                                @click="setActiveItem(item, item)"
+                                class="flex items-center gap-3 p-3 rounded-lg cursor-pointer w-full sidebar-item"
+                                :class="{active: isParentActive(item)}"
+                                @click="openParent=item"
                             >
                                 <i :class="item.icon"></i>
                                 <span class="text-lg">{{ item.name }}</span>
                                 <i 
                                     class="pi pi-chevron-down ml-auto transition-transform"
-                                    :class="{'rotate-180': activeParent?.name === item.name}"
+                                    :class="{'rotate-180': openParent?.name === item.name}"
                                 ></i>
                             </div>
 
                             <div 
-                                v-if="activeParent?.name == item.name" 
+                                v-if="openParent?.name == item.name" 
                                 class="flex flex-col ml-6 mt-2 gap-2"
                             >
                                 <div 
                                     v-for="(child, cIndex) in item.child" 
                                     :key="cIndex"
-                                    class="flex items-center gap-3 p-2 rounded-lg cursor-pointer w-full"
-                                    :style="activeItem?.name == child.name ? `background-color: var(--body-background)`: ''"
-                                    @click="setActiveItem(child, item)"
+                                    class="flex items-center gap-3 p-2 rounded-lg cursor-pointer w-full sidebar-item"
+                                    :class="{active: isActive(child)}"
                                 >
                                     <RouterLink :to="child.to" class="flex items-center gap-3 w-full">
                                         <i :class="child.icon"></i>
@@ -38,9 +37,8 @@
                         </div>
                         <div 
                             v-else 
-                            class="flex items-center gap-3 p-3 rounded-lg cursor-pointer w-full"
-                            :style="activeItem?.to == item?.to ? `background-color: var(--body-background)`: ''"
-                            @click="setActiveItem(item, null)"
+                            class="flex items-center gap-3 p-3 rounded-lg cursor-pointer w-full sidebar-item"
+                            :class="{active: isActive(item)}"
                         >
                             <RouterLink :to="item.to" class="flex items-center gap-3 w-full">
                                 <i :class="item.icon"></i>
@@ -55,8 +53,9 @@
 </template>
 
 <script setup>
-import { ref, defineProps } from 'vue';
-import { RouterLink } from 'vue-router';
+import { ref, defineProps, watch } from 'vue';
+import { RouterLink, useRoute } from 'vue-router';
+import { useThemeStore } from '@/stores/themeStore';
 
 const props = defineProps({
     open: {
@@ -65,8 +64,19 @@ const props = defineProps({
     }
 })
 
-const activeItem = ref(null);
-const activeParent = ref(null);
+const route = useRoute();   
+const openParent = ref(null);
+
+const isActive = (item) => {
+  if (!item.to) return false
+  console.log(`/${item.to}, ${route.path}`);
+  
+  return route.path == `/${item.to}` || route.path === item.to
+}
+
+const isParentActive = (parent) => {
+  return parent.child?.some(child => isActive(child))
+}
 
 const navigations = [
     { name: 'Dashboard', icon: 'pi pi-home', to: '/' },
@@ -80,14 +90,15 @@ const navigations = [
     { name: 'Settings', icon: 'pi pi-cog', to: 'settings' },
 ]
 
-const setActiveItem = (item, parent = null) => {
-    // If the clicked item is already active, deactivate it
-    if (activeItem.value?.name === item.name) {
-        activeItem.value = null;
-        activeParent.value = null;
-        return;
-    }
-    activeParent.value = parent;
-    activeItem.value = item;
-}
+watch(
+    () => route.path,
+    () => {
+        const parent = navigations.find(nav => 
+            nav.child?.some(child => route.path === `/${child.to}` || route.path === child.to)
+        );
+
+        openParent.value = parent || null;
+    },
+    { immediate: true }
+)
 </script>

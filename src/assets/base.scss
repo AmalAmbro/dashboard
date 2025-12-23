@@ -17,7 +17,7 @@
   --font-size-body-text: 12px;
   --font-size-input-info-icon: 10px;
 
-  --sidebar-width: 267px;
+  --sidebar-active-bg: var(--body-background);
 }
 
 html{
@@ -65,4 +65,6 @@ body {
   * {
     border-color: var(--dark-mode-border-color);
   }
+
+  --sidebar-active-bg: var(--dark-mode-body-background);
 }
