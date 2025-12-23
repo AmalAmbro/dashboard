@@ -17,12 +17,26 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { computed, watch } from "vue";
+import { useThemeStore } from "../../stores/themeStore";
 
-const darkMode = ref(false);
+const themeStore = useThemeStore();
+const darkMode = computed(() => themeStore.isDarkMode);
 // Toggle dark/light theme
 const toggleDarkMode = () => {
-    darkMode.value = !darkMode.value;
+    themeStore.toggleDarkMode();
     document.body.classList.toggle('my-app-dark');
 }
+
+watch(
+    darkMode, 
+    (isDark) => {
+        if (isDark) {
+            document.body.classList.add('my-app-dark');
+        } else {
+            document.body.classList.remove('my-app-dark');
+        }
+    },
+    { immediate: true }
+);
 </script>
