@@ -1,20 +1,14 @@
 :root {
   --link-color: #0D90FF;
-  --text-dark-color: #212327;
-  --text-light-color: #50565E;
-  --text-lighter-color: #808893;
+  --text-color: #212327;
   --border-color: #F1F1F1;
-  --border-color-2: #bcbcbc;
-  --highlighted-color: #F4F5F6;
-  --body-background-color: #f1f2f6;
+  --body-background: #f1f2f6;
   --background-color: #FFFFFF;
 
-  --dark-mode-highlighted-color: #282B2F;
-  --dark-mode-text-light-color: #DEE0E3;
-  --dark-mode-text-lighter-color: #F9FAFA;
-  --dark-mode-border-color: #212121;
-  --dark-mode-border-color-2: #2c2c2c;
-  --dark-mode-background: #0B0B0B;
+  --dark-mode-border-color: #2c2c2c;
+  --dark-mode-text-color: #f1f1f1;
+  --dark-mode-body-background: #0B0B0B;
+  --dark-mode-component-background: #1e1e1e;
 
   --font-size-title: 14px;
   --font-size-head: 12px;
@@ -59,17 +53,14 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--body-background-color);
-}
-label {
-  color: var(--text-light-color);
-  font-weight: 400;
+  background-color: var(--body-background);
 }
 
 // dark mode
 .my-app-dark {
   & {
-    background-color: var(--dark-mode-background);
+    background-color: var(--dark-mode-body-background);
+    color: var(--dark-mode-text-color);
   }
   * {
     border-color: var(--dark-mode-border-color);
