@@ -5,7 +5,7 @@
             <SelectButton v-model="size" :options="sizeOptions" optionLabel="label" optionValue="value" dataKey="label" />
         </div>
 
-        <div class="flex gap-4 mb-6">
+        <div class="flex justify-center gap-4 mb-6">
             <Button icon="pi pi-check" aria-label="Filter" :size="size" />
             <Button icon="pi pi-bookmark" severity="secondary" aria-label="Bookmark" :size="size" />
             <Button icon="pi pi-search" severity="success" aria-label="Search" :size="size" />
@@ -16,7 +16,7 @@
             <Button icon="pi pi-star" severity="contrast" aria-label="Star" :size="size" />
         </div>
 
-        <div class="flex gap-4 mb-6">
+        <div class="flex justify-center gap-4 mb-6">
             <Button icon="pi pi-check" rounded aria-label="Filter" :size="size" />
             <Button icon="pi pi-bookmark" severity="secondary" rounded aria-label="Bookmark" :size="size" />
             <Button icon="pi pi-search" severity="success" rounded aria-label="Search" :size="size" />
@@ -27,7 +27,7 @@
             <Button icon="pi pi-star" severity="contrast" rounded aria-label="Star" :size="size" />
         </div>
 
-        <div class="flex gap-4 mb-6">
+        <div class="flex justify-center gap-4 mb-6">
             <Button icon="pi pi-check" rounded variant="outlined" aria-label="Filter" :size="size" /> <Button icon="pi pi-bookmark" severity="secondary" rounded variant="outlined" aria-label="Bookmark" :size="size" />
             <Button icon="pi pi-search" severity="success" rounded variant="outlined" aria-label="Search" :size="size" />
             <Button icon="pi pi-user" severity="info" rounded variant="outlined" aria-label="User" :size="size" />
@@ -37,7 +37,7 @@
             <Button icon="pi pi-star" severity="contrast" rounded variant="outlined" aria-label="Star" :size="size" />
         </div>
 
-        <div class="flex gap-4 mb-6">
+        <div class="flex justify-center gap-4 mb-6">
             <Button icon="pi pi-check" variant="text" raised rounded aria-label="Filter" :size="size" />
             <Button icon="pi pi-bookmark" severity="secondary" variant="text" raised rounded aria-label="Bookmark" :size="size" />
             <Button icon="pi pi-search" severity="success" variant="text" raised rounded aria-label="Search" :size="size" />
@@ -48,7 +48,7 @@
             <Button icon="pi pi-star" severity="contrast" variant="text" raised rounded aria-label="Star" :size="size" />
         </div>
 
-        <div class="flex gap-4">
+        <div class="flex justify-center gap-4">
             <Button icon="pi pi-check" variant="text" rounded aria-label="Filter" :size="size" />
             <Button icon="pi pi-bookmark" severity="secondary" variant="text" rounded aria-label="Bookmark" :size="size" />
             <Button icon="pi pi-search" severity="success" variant="text" rounded aria-label="Search" :size="size" />

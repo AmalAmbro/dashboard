@@ -45,7 +45,10 @@ const presetOptions = {
 		preset: MyPreset,
 		options: {
             darkModeSelector: '.my-app-dark',
-			
+			cssLayer: {
+                name: 'primevue',
+                order: 'theme, base, primevue'
+            }
         }
 	},
 };
