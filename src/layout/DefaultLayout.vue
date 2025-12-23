@@ -9,7 +9,7 @@
       <Topbar />
 
       <!-- Router view -->
-      <main class="flex-1 overflow-auto p-6">
+      <main class="overflow-auto p-4">
         <router-view />
       </main>
     </div>

@@ -11,7 +11,8 @@ import presetOptions from '@/theme'
 import { 
 	Button, 
 	Card,
-	InputText 
+	InputText,
+	SelectButton
 } from 'primevue';
 
 const app = createApp(App);
@@ -23,5 +24,6 @@ app.use(router);
 app.component('Button', Button);
 app.component('Card', Card)
 app.component('InputText', InputText);
+app.component('SelectButton', SelectButton);
 
 app.mount('#app');
