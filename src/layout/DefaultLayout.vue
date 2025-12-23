@@ -9,7 +9,7 @@
       <Topbar />
 
       <!-- Router view -->
-      <main class="overflow-auto p-4">
+      <main class="overflow-auto pt-4">
         <router-view />
       </main>
     </div>

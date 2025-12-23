@@ -11,10 +11,14 @@ import './assets/main.scss'
 import presetOptions from '@/theme'
 
 import { 
+	Avatar,
 	Button, 
 	Card,
+	DatePicker,
+	Divider,
 	InputText,
-	SelectButton
+	SelectButton,
+	Textarea
 } from 'primevue';
 
 
@@ -27,9 +31,13 @@ app.use(PrimeVue, presetOptions);
 app.use(router);
 
 // components registration
+app.component('Avatar', Avatar);
 app.component('Button', Button);
 app.component('Card', Card)
+app.component('DatePicker', DatePicker);
+app.component('Divider', Divider);
 app.component('InputText', InputText);
 app.component('SelectButton', SelectButton);
+app.component('Textarea', Textarea);
 
 app.use(pinia).mount('#app');
