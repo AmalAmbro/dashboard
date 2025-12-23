@@ -55,7 +55,7 @@
 <script setup>
 import { ref, defineProps, watch } from 'vue';
 import { RouterLink, useRoute } from 'vue-router';
-import { useThemeStore } from '@/stores/themeStore';
+import navigations from '@/navigation';
 
 const props = defineProps({
     open: {
@@ -68,27 +68,13 @@ const route = useRoute();
 const openParent = ref(null);
 
 const isActive = (item) => {
-  if (!item.to) return false
-  console.log(`/${item.to}, ${route.path}`);
-  
+  if (!item.to) return false;
   return route.path == `/${item.to}` || route.path === item.to
 }
 
 const isParentActive = (parent) => {
   return parent.child?.some(child => isActive(child))
 }
-
-const navigations = [
-    { name: 'Dashboard', icon: 'pi pi-home', to: '/' },
-    { name: 'Profile', icon: 'pi pi-user', to: 'profile' },
-    { 
-        name: 'Sun', 
-        icon: 'pi pi-sun', 
-        child: [{ name: 'Buttons', icon: 'pi pi-microchip', to: 'buttons' }]
-    },
-    { name: 'Reports', icon: 'pi pi-chart-bar', to: 'reports' },
-    { name: 'Settings', icon: 'pi pi-cog', to: 'settings' },
-]
 
 watch(
     () => route.path,
