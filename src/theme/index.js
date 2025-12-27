@@ -23,7 +23,6 @@ const MyPreset = definePreset(Aura, {
 			content: {
 				background: 'var(--dark-mode-body-background)',
 				color: 'var(--dark-mode-text-color)',
-				borderColor: 'var(--dark-mode-border-color)',
 			}
 		}
 	},
@@ -33,6 +32,14 @@ const MyPreset = definePreset(Aura, {
                 dark: {
                     background: 'var(--dark-mode-component-background)',
                     color: '#f3f3f3',
+                }
+            }
+        },
+        button: {
+            colorScheme: {
+                dark: {
+                    border: 'transparent',
+                    boxShadow: 'none'
                 }
             }
         }

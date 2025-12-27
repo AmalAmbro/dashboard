@@ -39,7 +39,13 @@
 
             <div class="flex flex-col gap-2">
               <label for="dob">Date of Birth</label>
-              <DatePicker id="dob" v-model="form.dob" showIcon />
+              <DatePicker 
+                id="dob" 
+                v-model="form.dob" 
+                fluid 
+                show-icon 
+                icon-display="input"   
+              />
             </div>
           </div>
 
