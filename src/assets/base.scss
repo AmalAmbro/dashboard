@@ -19,7 +19,7 @@
   --font-size-body-text: 12px;
   --font-size-input-info-icon: 10px;
 
-  --sidebar-active-bg: var(--body-background);
+  --sidebar-active-bg: var(--my-primary-color);
 }
 
 html{
@@ -68,5 +68,5 @@ body {
     // border-color: var(--dark-mode-border-color);
   }
 
-  --sidebar-active-bg: var(--my-primary-color);
+  // --sidebar-active-bg: var(--my-primary-color);
 }

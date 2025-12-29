@@ -12,8 +12,10 @@ body {
 
 .sidebar-item:hover {
   background-color: var(--sidebar-active-bg);
+  color: var(--dark-mode-text-color);
 }
 
 .sidebar-item.active {
   background-color: var(--sidebar-active-bg);
+  color: var(--dark-mode-text-color);
 }
