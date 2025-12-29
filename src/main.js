@@ -6,8 +6,8 @@ import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 
 import router from '@/router'
 // styles
-import './assets/tailwind.css'
-import './assets/main.scss'
+import './assets/styles/tailwind.css'
+import './assets/styles/main.scss'
 import presetOptions from '@/theme'
 
 import { 

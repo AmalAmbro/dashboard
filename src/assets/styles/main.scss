@@ -1,0 +1,37 @@
+@use './base.scss';
+@use 'primeicons/primeicons.css';
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+// sidebar active background color
+.sidebar-item {
+  transition: background-color 0.2s ease;
+}
+
+.sidebar-item:hover {
+  background-color: var(--sidebar-parent-child-bg);
+}
+
+.sidebar-item.active {
+  background-color: var(--sidebar-active-bg);
+  color: var(--dark-mode-text-color);
+}
+// collapse animation
+.collapse-enter-active,
+.collapse-leave-active {
+  transition: max-height 0.25s ease, opacity 0.2s ease;
+}
+
+.collapse-enter-from,
+.collapse-leave-to {
+  max-height: 0;
+  opacity: 0;
+}
+
+.collapse-enter-to,
+.collapse-leave-from {
+  max-height: 500px; /* must be > max content height */
+  opacity: 1;
+}
