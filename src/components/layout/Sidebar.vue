@@ -8,13 +8,13 @@
                             <div 
                                 class="flex items-center gap-3 p-3 rounded-lg cursor-pointer w-full sidebar-item"
                                 :class="{active: isParentActive(item)}"
-                                @click="openParent=item"
+                                @click="toggleParent(item)"
                             >
                                 <i :class="item.icon"></i>
                                 <span class="text-lg">{{ item.name }}</span>
                                 <i 
                                     class="pi pi-chevron-down ml-auto transition-transform"
-                                    :class="{'rotate-180': openParent?.name === item.name}"
+                                    :class="openParent?.name === item.name ? 'rotate-180' : ''"
                                 ></i>
                             </div>
 
@@ -74,6 +74,14 @@ const isActive = (item) => {
 
 const isParentActive = (parent) => {
   return parent.child?.some(child => isActive(child))
+}
+
+const toggleParent = (parent) => {
+    if (openParent.value?.name == parent?.name) {
+        openParent.value = null;
+        return
+    }
+    openParent.value = parent;
 }
 
 watch(
