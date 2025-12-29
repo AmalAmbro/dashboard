@@ -30,7 +30,7 @@
                                     <div 
                                         v-for="(child, cIndex) in item.child" 
                                         :key="cIndex"
-                                        class="flex items-center gap-3 p-2 rounded-lg cursor-pointer w-full sidebar-item"
+                                        class="flex items-center gap-3 p-2 rounded-lg cursor-pointer w-full sidebar-child-item"
                                         :class="{ active: isActive(child) }"
                                     >
                                         <RouterLink :to="child.to" class="flex items-center gap-3 w-full">

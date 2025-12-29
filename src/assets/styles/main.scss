@@ -7,17 +7,21 @@ body {
 
 // sidebar active background color
 .sidebar-item {
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .sidebar-item:hover {
   background-color: var(--sidebar-parent-child-bg);
 }
 
-.sidebar-item.active {
+.sidebar-item.active,
+.sidebar-child-item:hover,
+.sidebar-child-item.active {
   background-color: var(--sidebar-active-bg);
   color: var(--dark-mode-text-color);
+  transition: all 0.25s ease;
 }
+
 // collapse animation
 .collapse-enter-active,
 .collapse-leave-active {
