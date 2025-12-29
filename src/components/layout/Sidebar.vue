@@ -4,7 +4,11 @@
             <div class="flex flex-col h-full">
                 <nav class="flex flex-col gap-2">
                     <template v-for="(item, index) in navigations" :key="item.to || item.name">
-                        <div v-if="item.child" class="flex flex-col">
+                        <div 
+                            v-if="item.child" 
+                            class="flex flex-col" 
+                            :class="openParent?.name == item.name ? 'rounded-lg bg-[var(--sidebar-parent-child-bg)]' : ''"   
+                        >
                             <div 
                                 class="flex items-center gap-3 p-3 rounded-lg cursor-pointer w-full sidebar-item"
                                 :class="{active: isParentActive(item)}"
@@ -18,23 +22,26 @@
                                 ></i>
                             </div>
 
-                            <div 
-                                v-if="openParent?.name == item.name" 
-                                class="flex flex-col ml-6 mt-2 gap-2"
-                            >
+                            <Transition name="collapse">
                                 <div 
-                                    v-for="(child, cIndex) in item.child" 
-                                    :key="cIndex"
-                                    class="flex items-center gap-3 p-2 rounded-lg cursor-pointer w-full sidebar-item"
-                                    :class="{active: isActive(child)}"
+                                    v-if="openParent?.name == item.name"
+                                    class="flex flex-col gap-2 p-2 overflow-hidden"
                                 >
-                                    <RouterLink :to="child.to" class="flex items-center gap-3 w-full">
-                                        <i :class="child.icon"></i>
-                                        <span class="text-lg">{{ child.name }}</span>
-                                    </RouterLink>
-                                </div> 
-                            </div>
+                                    <div 
+                                        v-for="(child, cIndex) in item.child" 
+                                        :key="cIndex"
+                                        class="flex items-center gap-3 p-2 rounded-lg cursor-pointer w-full sidebar-item"
+                                        :class="{ active: isActive(child) }"
+                                    >
+                                        <RouterLink :to="child.to" class="flex items-center gap-3 w-full">
+                                            <i :class="child.icon"></i>
+                                            <span class="text-lg">{{ child.name }}</span>
+                                        </RouterLink>
+                                    </div>
+                                </div>
+                            </Transition>
                         </div>
+
                         <div 
                             v-else 
                             class="flex items-center gap-3 p-3 rounded-lg cursor-pointer w-full sidebar-item"
