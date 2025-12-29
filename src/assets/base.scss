@@ -1,4 +1,6 @@
 :root {
+  --my-primary-color: var(--p-primary-color);
+
   --link-color: #0D90FF;
   --text-color: #212327;
   --border-color: #F1F1F1;
@@ -66,5 +68,5 @@ body {
     // border-color: var(--dark-mode-border-color);
   }
 
-  --sidebar-active-bg: var(--dark-mode-body-background);
+  --sidebar-active-bg: var(--my-primary-color);
 }
