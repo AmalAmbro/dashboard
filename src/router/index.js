@@ -7,7 +7,13 @@ const routes = setupLayouts(generatedRoutes)
 
 const router = createRouter({
 	history: createWebHashHistory(),
-	routes,
+	routes: [
+		...routes,
+		{
+			path: '/',
+			redirect: '/dashboard'
+		}
+	],
 })
 
 export default router
