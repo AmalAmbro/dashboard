@@ -7,7 +7,6 @@
                         <div 
                             v-if="item.child" 
                             class="flex flex-col" 
-                            :class="openParent?.name == item.name ? 'rounded-lg bg-[var(--sidebar-parent-child-bg)]' : ''"   
                         >
                             <div 
                                 class="flex items-center gap-3 p-3 rounded-lg cursor-pointer w-full sidebar-item"
@@ -25,7 +24,7 @@
                             <Transition name="collapse">
                                 <div 
                                     v-if="openParent?.name == item.name"
-                                    class="flex flex-col gap-2 p-2 overflow-hidden"
+                                    class="flex flex-col gap-2 mt-2 p-2 overflow-hidden rounded-lg bg-[var(--sidebar-parent-child-bg)]"
                                 >
                                     <div 
                                         v-for="(child, cIndex) in item.child" 
@@ -76,7 +75,7 @@ const openParent = ref(null);
 
 const isActive = (item) => {
   if (!item.to) return false;
-  return route.path == `/${item.to}` || route.path === item.to
+  return route.name === item.to?.name
 }
 
 const isParentActive = (parent) => {
@@ -92,10 +91,10 @@ const toggleParent = (parent) => {
 }
 
 watch(
-    () => route.path,
+    () => route.name,
     () => {
         const parent = navigations.find(nav => 
-            nav.child?.some(child => route.path === `/${child.to}` || route.path === child.to)
+            nav.child?.some(child => route.name === child.to?.name)
         );
 
         openParent.value = parent || null;

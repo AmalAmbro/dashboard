@@ -17,13 +17,6 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
 import Topbar from "@/components/layout/Topbar.vue";
 import Sidebar from "@/components/layout/Sidebar.vue";
-
-const darkMode = ref(false);
-// Toggle dark/light theme
-const toggleDarkMode = () => {
-  document.body.classList.toggle('my-app-dark');
-}
 </script>
